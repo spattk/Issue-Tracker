@@ -1,7 +1,7 @@
 class GitHub {
     constructor() {
-        this.client_id = '15612da7da543b48a2b2';
-        this.client_secret = 'b1cd2ee6f923f3b881e08b3af0b8811c7ae01374';
+        this.client_id = 'e4ffc829b972a5f5d9df';
+        this.client_secret = 'bcd4ba04da792b043b08aec1f948bdb076a695f0';
     }
 
     async checkIssues(owner, repo){
@@ -18,7 +18,7 @@ class GitHub {
 
     async getIssuesByPage(owner, repo, page) {
 
-        const getIssueReponseByPage = await fetch(`https://api.github.com/${owner}/${repo}/issues?filter=all&state=open&sort=created&direction=desc&per_page=100&page=${page}`);
+        const getIssueReponseByPage = await fetch(`https://api.github.com/repos/${owner}/${repo}/issues?filter=all&state=open&sort=created&direction=desc&per_page=100&page=${page}`);
 
         return getIssueReponseByPage.json();
     }

@@ -62,6 +62,7 @@ searchRepo.addEventListener('click', (e) => {
                         else {
                             //Show Issues
                             ui.fillArray(owner, repo).then(result => {
+                                console.log("Response");
                                 console.log({ result });
                                 results = result;
                                 const currDate = Date.parse(new Date());

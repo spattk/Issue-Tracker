@@ -16,7 +16,7 @@ class UI {
                     console.log(data.message);
                     ui.showAlert(data.message);
                 }
-                results.push(data);
+                results = results.concat(data);
                 if(data.length<100)
                 more = false;
             })
@@ -33,7 +33,7 @@ class UI {
                         console.log(data.message);
                         ui.showAlert(data.message);
                     }
-                    results.push(data);
+                    results = results.concat(data);
                     if (data.length < 100) {
                         more = false;
                     }
