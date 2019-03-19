@@ -67,18 +67,22 @@ searchRepo.addEventListener('click', (e) => {
                                 results = result;
                                 const currDate = Date.parse(new Date());
                                 const millis = 3600000; //Milliseconds of an hour
+                                let timeDiff = 0;
 
                                 //Traverse the result array and check the time when is the issue created by checking 24 hours or 24*7 for 7 days
                                 results.forEach((result) => {
                                     let createDate = Date.parse(result.created_at);
+
                                     if (result.pull_request == null) {
                                         totalIssues.push(result);
 
-                                        if ((currDate - createDate) / millis < 24) {
+                                        timeDiff = (currDate - createDate)/millis;
+
+                                        if (timeDiff < 24) {
                                             firstIssues.push(result);
                                         }
 
-                                        else if ((currDate - createDate) / millis >= 24 && (currDate - Date.parse(result.created_at) / millis < 168)) {
+                                        else if (timeDiff >= 24 && timeDiff < 168) {
                                             secondIssues.push(result);
                                         }
 
